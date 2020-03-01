@@ -1,5 +1,4 @@
-let inflateButton = document.getElementById("inflate-button")
-let startButton = document.getElementById("start-button")
+
 
 // #region GAME LOGIc
 
@@ -16,11 +15,11 @@ let timeRemaining = 0
 let currentPlayer = {}
 
 function startGame(){
-
-  startButton.setAttribute("disabled", "true")
-  inflateButton.removeAttribute("disabled")
+  document.getElementById("game-controls").classList.remove("hidden")
+  document.getElementById("main-controls").classList.add("hidden")
   startClock()
   setTimeout(stopGame, gameLength)
+
 }
 
 function startClock(){
@@ -58,19 +57,22 @@ function draw(){
   let balloonElement = document.getElementById("balloon")
   let popCountElem = document.getElementById("pop-count")
   let highestPopCountElem = document.getElementById("high-pop-count")
+  let playerNameElem = document.getElementById("player-name")
 
   balloonElement.style.height = height.toString()
   balloonElement.style.width = width.toString()
   clickElem.innerText = clickCount.toString()
   popCountElem.innerHTML = currentPopCount.toString()
   highestPopCountElem.innerText = currentPlayer.topScore.toString()
+  playerNameElem.innerText = currentPlayer.name
+
   
 }
 
 function stopGame(){
   console.log("TIME!")
-  startButton.removeAttribute("disabled")
-  inflateButton.setAttribute("disabled", "true")
+  document.getElementById("main-controls").classList.remove("hidden")
+  document.getElementById("game-controls").classList.add("hidden")
 
   clickCount = 0
   height = 120

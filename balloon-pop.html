@@ -4,51 +4,72 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
+  <script src="https://use.fontawesome.com/0e2c687b57.js"></script>
   <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
 
-  <form id="player-form" onsubmit="setPlayer(event)">
-    <div>
-      <label for="name">Name:</label>
-      <input type="text" name="playerName" required>
+  <header>
+    <div class="container shadow">
+      <img src="balloon-pop-logo.png" alt="balloon pop logo">
     </div>
-    <button type="submit">ok</button>
-  </form>
+  </header>
 
-  <section id="game" class="game hidden">
+  <main class="card container">
 
 
-    <div>
-      <button onclick="changePlayer()">Change Player</button>
+    <form class="d-flex space-between" id="player-form" onsubmit="setPlayer(event)">
+      <div>
+        <label for="name">
+          <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+          <span>Name:</span>
+        </label>
+        <input type="text" name="playerName" required>
+      </div>
+      <button type="submit">ok</button>
+    </form>
+
+    <section id="game" class="game hidden">
+
+      <div class="card bg-dark text-light">
+        <div class="d-flex space-between">
+          <div>
+            <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+            <span id="player-name"></span>
+          </div>
+          <div>
+            <span>Top Pop:</span>
+            <span id="high-pop-count">0</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="main-controls" class="d-flex space-around mt-2">
+        <button class="bg-dark-light" onclick="changePlayer()">Change Player</button>
+        <button id="start-button" onclick="startGame()">Start Game</button>
+      </div>
+    <div id="game-controls" class="hidden">
+      <button id="inflate-button" type="button" onclick="inflate()">Inflate <span
+          id="click-count"></span>
+      </button>
+
+      <div>
+        <span>Balloons Popped:</span>
+        <span id="pop-count">0</span>
+      </div>
+      <div>
+        <span>Time Remaining:</span>
+        <span id="countdown">0</span>
+      </div>
+      
+      <div id="balloon" class="balloon"></div>
+      
     </div>
 
-    <div>
-      <button id="start-button" onclick="startGame()">Start Game</button>
-    </div>
-
-    <button id="inflate-button" type="button" onclick="inflate()" disabled="true">Inflate <span id="click-count"></span>
-    </button>
-
-    <div>
-      <span>Balloons Popped:</span>
-      <span id="pop-count">0</span>
-    </div>
-    <div>
-      <span>Top Pop:</span>
-      <span id="high-pop-count">0</span>
-    </div>
-    <div>
-      <span>Time Remaining:</span>
-      <span id="countdown">0</span>
-    </div>
-
-    <div id="balloon" class="balloon"></div>
-
-
-  </section>
+    </section>
+  </main>
 
 
   <script src="main.js"></script>
