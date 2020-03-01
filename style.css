@@ -9,3 +9,7 @@ body{
   width: 100px;
   border-radius: 50%;
 }
+
+.hidden{
+  display: none;
+}
