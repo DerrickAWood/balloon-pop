@@ -51,9 +51,6 @@
         <button id="start-button" onclick="startGame()">Start Game</button>
       </div>
     <div id="game-controls" class="hidden">
-      <button id="inflate-button" type="button" onclick="inflate()">Inflate <span
-          id="click-count"></span>
-      </button>
 
       <div>
         <span>Balloons Popped:</span>
@@ -64,7 +61,14 @@
         <span id="countdown">0</span>
       </div>
       
-      <div id="balloon" class="balloon"></div>
+      <div class="game-container d-flex">
+        <div class="pump" onclick="inflate()">
+          <div class="handle"></div>
+          <div class="pump-box"></div>
+            <span id="click-count"></span>
+        </div>
+        <div id="balloon" class="balloon"></div>
+      </div>
       
     </div>
 
